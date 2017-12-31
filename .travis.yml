@@ -1,0 +1,16 @@
+language: php
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+sudo: false
+install:
+  - pecl install swoole
+  - composer install
+before_script:
+  - pushd public
+  - php index.php &
+  - popd
+  - sleep 4
+script:
+  - DB=sqlite SEND=external vendor/bin/phpunit
