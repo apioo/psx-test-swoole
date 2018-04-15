@@ -5,7 +5,7 @@ php:
   - 7.2
 sudo: false
 install:
-  - pecl install -f swoole
+  - yes '' | pecl install -f swoole
   - composer install
 before_script:
   - pushd public
