@@ -8,6 +8,7 @@ install:
   - yes '' | pecl install -f swoole
   - composer install
 before_script:
+  - phpenv config-rm xdebug.ini
   - pushd public
   - php index.php &
   - popd
