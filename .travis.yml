@@ -4,14 +4,18 @@ php:
   - 7.3
   - 7.4
 sudo: false
+services:
+  - mysql
 install:
   - yes '' | pecl install -f swoole
   - composer install
 before_script:
-  - if [ $TRAVIS_PHP_VERSION == '7.2' ]; then phpenv config-rm xdebug.ini; fi;
+  - mysql -e 'create database psx;'
   - pushd public
   - php index.php &
   - popd
   - sleep 4
 script:
-  - DB=sqlite SEND=external vendor/bin/phpunit
+  - SEND=external vendor/bin/phpunit
+env:
+  - DB=mysql
