@@ -57,7 +57,7 @@ return array(
     // Class name of the error controller
     //'psx_error_controller'    => null,
 
-    // If you only want to change the appearance of the error page you can 
+    // If you only want to change the appearance of the error page you can
     // specify a custom template
     //'psx_error_template'      => null,
 
@@ -70,7 +70,7 @@ function getConnectionParams($db)
             return [
                 'dbname'   => 'psx',
                 'user'     => 'root',
-                'password' => '',
+                'password' => 'test1234',
                 'host'     => 'localhost',
                 'driver'   => 'pdo_mysql',
             ];
