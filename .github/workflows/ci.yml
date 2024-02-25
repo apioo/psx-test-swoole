@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         php-versions:
-          - 8.0
-          - 8.1
+          - 8.2
+          - 8.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,8 +29,8 @@ jobs:
       - name: Composer install
         run: composer install --no-interaction --no-ansi --no-progress
       - name: Run Swoole
-        run: cd public && DB=mysql php index.php &
+        run: cd public && php index.php &
       - name: Wait
         run: sleep 4
       - name: Run PHPUnit
-        run: SEND=external DB=mysql vendor/bin/phpunit
+        run: SEND=external vendor/bin/phpunit

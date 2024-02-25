@@ -2,6 +2,8 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-PSX\Framework\Test\Environment::setup(__DIR__ . '/..', function ($fromSchema) {
-    return \PSX\Framework\App\TestSchema::getSchema();
-});
+$container = require_once __DIR__ . '/../container.php';
+
+/** @var \PSX\Framework\Test\Environment $environment */
+$environment = $container->get(\PSX\Framework\Test\Environment::class);
+$environment->setup();
